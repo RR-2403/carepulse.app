@@ -44,10 +44,15 @@ const PatientForm = () => {
         phone: values.phone,
       };
 
-      const newUser = await createUser(user);
+      const { user: newUser, isNewUser } = await createUser(user);
 
       if (newUser) {
-        router.push(`/patients/${newUser.$id}/register`);
+        // Redirect based on whether the user is new or existing
+        if (isNewUser) {
+          router.push(`/patients/${newUser.$id}/register`);
+        } else {
+          router.push(`/patients/${newUser.$id}/new-appointment`);
+        }
       }
     } catch (error) {
       console.log(error);

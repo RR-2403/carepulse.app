@@ -26,17 +26,31 @@ export const createUser = async (user: CreateUserParams) => {
       user.name
     );
 
-    return parseStringify(newuser);
+    return { user: parseStringify(newuser), isNewUser: true };
   } catch (error: any) {
     // Check existing user
-    if (error && error?.code === 409) {
-      const existingUser = await users.list([
-        Query.equal("email", [user.email]),
-      ]);
+    if (error && error.code === 409) {
+      try {
+        // Query for the existing user by email
+        const existingUsers = await users.list([
+          Query.equal("email", user.email),
+        ]);
 
-      return existingUser.users[0];
+        // Return the first existing user found
+        if (existingUsers.total > 0) {
+          return parseStringify(existingUsers.users[0]);
+        }
+      } catch (queryError) {
+        console.error(
+          "An error occurred while querying the existing user:",
+          queryError
+        );
+        throw queryError;
+      }
+    } else {
+      console.error("An error occurred while creating a new user:", error);
+      throw error;
     }
-    console.error("An error occurred while creating a new user:", error);
   }
 };
 
