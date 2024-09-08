@@ -54,3 +54,12 @@ declare type UpdateAppointmentParams = {
   appointment: Appointment;
   type: string;
 };
+
+declare type DoctorsColumnsParams = {
+  doctor: string;
+  hospital: string;
+  speciality: string;
+  days: string;
+  timings: string;
+  image: string;
+};

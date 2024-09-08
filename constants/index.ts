@@ -81,3 +81,30 @@ export const StatusIcon = {
   pending: "/assets/icons/pending.svg",
   cancelled: "/assets/icons/cancelled.svg",
 };
+
+export const Menudata = [
+  {
+    title: "Call an Ambulance",
+    image: "ph:ambulance",
+  },
+  {
+    title: "OPD Report",
+    image: "carbon:report",
+  },
+  {
+    title: "Medicine Delivery",
+    image: "game-icons:medicine-pills",
+  },
+  {
+    title: "Doctors Availability",
+    image: "healthicons:doctor-male",
+  },
+  {
+    title: "Bed Availability",
+    image: "mdi:bed",
+  },
+  {
+    title: "Book a Medical Test",
+    image: "bx:injection",
+  },
+];
