@@ -63,3 +63,9 @@ declare type DoctorsColumnsParams = {
   timings: string;
   image: string;
 };
+
+declare type BedsColumnsParams = {
+  hospital: string;
+  status: string;
+  beds: number;
+};

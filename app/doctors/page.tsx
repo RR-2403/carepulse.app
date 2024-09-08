@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { DoctorColumns } from "@/components/table/DoctorsColumns";
 import { DTable } from "@/components/table/DTable";
-import { DoctorsData } from "@/constants/doctors";
+import { DoctorsData } from "@/constants";
 
 const DoctorsAvailability = () => {
   const data = DoctorsData;

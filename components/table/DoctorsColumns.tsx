@@ -32,8 +32,8 @@ export const DoctorColumns: ColumnDef<DoctorsColumnsParams>[] = [
     },
   },
   {
-    accessorKey: "hospital",
-    header: "Hospital",
+    accessorKey: "specialty",
+    header: "Specialty",
     cell: ({ row }) => {
       const data = row.original;
       const speciality = data.speciality;
@@ -47,7 +47,7 @@ export const DoctorColumns: ColumnDef<DoctorsColumnsParams>[] = [
               : speciality === "Pediatrician"
               ? "bg-[#152432]"
               : speciality === "General"
-              ? "bg-[#3E1716] "
+              ? "bg-[#3E1716]"
               : speciality === "Gastroenterologists"
               ? "bg-[#0D0F10] "
               : ""
@@ -59,16 +59,16 @@ export const DoctorColumns: ColumnDef<DoctorsColumnsParams>[] = [
     },
   },
   {
-    accessorKey: "hospital",
-    header: "Hospital",
+    accessorKey: "days",
+    header: "Days",
     cell: ({ row }) => {
       const data = row.original;
       return <div className="font-medium "> {data.days} </div>;
     },
   },
   {
-    accessorKey: "hospital",
-    header: "Hospital",
+    accessorKey: "timings",
+    header: "Timings",
     cell: ({ row }) => {
       const data = row.original;
       return <div className="font-medium "> {data.timings} </div>;

@@ -10,8 +10,6 @@ const InProgress = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
   const showModal = true;
 
-  const handleClick = {};
-
   return (
     <div className="relative flex h-screen max-h-screen">
       <section
@@ -58,7 +56,7 @@ const InProgress = async ({ params: { userId } }: SearchParamProps) => {
 
       {showModal && (
         <div className="fixed inset-0  flex items-center justify-center z-50">
-          <div className="bg-[#D2D2D2] rounded-lg p-8 text-center relative w-full max-w-[400px] h-[200px] mx-auto">
+          <div className="bg-[#D2D2D2] rounded-lg p-8 text-center relative w-full max-w-[400px] h-[220px] mx-auto">
             <Link href={`/patients/${userId}/menu`}>
               <Icon
                 icon="mdi:arrow-left"
@@ -67,8 +65,8 @@ const InProgress = async ({ params: { userId } }: SearchParamProps) => {
                 className="absolute top-4 text-black left-4 cursor-pointer"
               />
             </Link>
-            <h2 className="text-2xl text-zinc-800 mt-4 font-bold mb-10">
-              Work in Progress
+            <h2 className="text-2xl text-zinc-800 mt-6 font-bold mb-8">
+              Our team is working hard to add more features!
             </h2>
             <Icon
               icon="carbon:warning"
