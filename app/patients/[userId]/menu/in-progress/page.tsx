@@ -28,7 +28,7 @@ const InProgress = async ({ params: { userId } }: SearchParamProps) => {
             />
             <p>
               Welcome{" "}
-              <span className="p-1 m-1 text-[#24AE7C]">{user.name}</span>
+              <span className="p-1 m-1 text-[#24AE7C]">{user?.name}</span>
             </p>
           </div>
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">

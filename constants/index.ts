@@ -88,7 +88,7 @@ export const Menudata = [
     image: "ph:ambulance",
   },
   {
-    title: "OPD Report",
+    title: "OPD Booking and Reports",
     image: "carbon:report",
   },
   {
