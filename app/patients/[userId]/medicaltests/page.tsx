@@ -1,15 +1,8 @@
 import Image from "next/image";
 
-import { getPatient } from "@/lib/actions/patient.actions";
-import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { TestForm } from "@/components/forms/TestForm";
 
-import * as Sentry from "@sentry/nextjs";
-
-const Appointment = async ({ params: { userId } }: SearchParamProps) => {
-  const patient = await getPatient(userId);
-
-  Sentry.metrics.set("user_view_new-appointment", patient.name);
-
+const MedicalTests = async ({ params: { userId } }: SearchParamProps) => {
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container">
@@ -22,11 +15,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             className="mb-12 h-10 w-fit"
           />
 
-          <AppointmentForm
-            patientId={patient?.$id}
-            userId={userId}
-            type="create"
-          />
+          <TestForm userId={userId} />
 
           <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
         </div>
@@ -43,4 +32,4 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
   );
 };
 
-export default Appointment;
+export default MedicalTests;

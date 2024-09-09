@@ -35,7 +35,7 @@ const Menu = async ({ params: { userId } }: SearchParamProps) => {
                 <Link
                   href={
                     i === 0
-                      ? `/patients/${userId}/menu/in-progress`
+                      ? `/patients/${userId}/menu/ambulance`
                       : i === 1
                       ? `/patients/${userId}/register`
                       : i === 2
@@ -45,7 +45,7 @@ const Menu = async ({ params: { userId } }: SearchParamProps) => {
                       : i === 4
                       ? `/beds`
                       : i === 5
-                      ? `/patients/${userId}/menu/in-progress`
+                      ? `/patients/${userId}/medicaltests`
                       : `/patients/${userId}/menu`
                   }
                   target={i === 3 || i === 4 ? "_blank" : "_self"}
