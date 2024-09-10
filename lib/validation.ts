@@ -119,3 +119,17 @@ export function getAppointmentSchema(type: string) {
       return ScheduleAppointmentSchema;
   }
 }
+
+export const TestFormSchema = z.object({
+  hospital: z.string().min(2, "Select at least one hospital"),
+  test: z.string().min(2, "Select at least one test"),
+  schedule: z.coerce.date(),
+  note: z.string().optional(),
+});
+
+export const DeliveryFormSchema = z.object({
+  hospital: z.string().min(2, "Select at least one hospital"),
+  test: z.string().min(2, "Select at least one test"),
+  schedule: z.coerce.date(),
+  note: z.string().optional(),
+});

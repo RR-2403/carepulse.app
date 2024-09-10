@@ -39,7 +39,7 @@ const Menu = async ({ params: { userId } }: SearchParamProps) => {
                       : i === 1
                       ? `/patients/${userId}/register`
                       : i === 2
-                      ? `/patients/${userId}/menu/in-progress`
+                      ? `/patients/${userId}/delivery`
                       : i === 3
                       ? `/doctors`
                       : i === 4

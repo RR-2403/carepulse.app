@@ -1,30 +1,27 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { SelectItem } from "@/components/ui/select";
 import { BedsData, TestsData } from "@/constants";
-import { getAppointmentSchema } from "@/lib/validation";
+import { TestFormSchema } from "@/lib/validation";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import Link from "next/link";
 import CustomFormField from "../CustomFormField";
 import { Button } from "../ui/button";
 import { Form } from "../ui/form";
 import { FormFieldType } from "./PatientForm";
-import Link from "next/link";
 
 export const TestForm = ({ userId }: { userId: string }) => {
-  const router = useRouter();
-  const AppointmentFormValidation = getAppointmentSchema("create");
-
-  const form = useForm<z.infer<typeof AppointmentFormValidation>>({
-    resolver: zodResolver(AppointmentFormValidation),
+  const form = useForm<z.infer<typeof TestFormSchema>>({
+    resolver: zodResolver(TestFormSchema),
     defaultValues: {
+      hospital: "",
+      test: "",
       schedule: new Date(Date.now()),
       note: "",
     },

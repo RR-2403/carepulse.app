@@ -17,7 +17,7 @@ const MedicalTests = async ({ params: { userId } }: SearchParamProps) => {
 
           <TestForm userId={userId} />
 
-          <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
+          <p className="copyright mt-10 py-12">© 2024 CarePulse</p>
         </div>
       </section>
 

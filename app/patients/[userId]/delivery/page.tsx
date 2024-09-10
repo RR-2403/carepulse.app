@@ -1,15 +1,10 @@
+import { DeliveryForm } from "@/components/forms/DeliveryForm";
+import { getUser } from "@/lib/actions/patient.actions";
 import Image from "next/image";
+import React from "react";
 
-import { getPatient } from "@/lib/actions/patient.actions";
-import { AppointmentForm } from "@/components/forms/AppointmentForm";
-
-import * as Sentry from "@sentry/nextjs";
-
-const Appointment = async ({ params: { userId } }: SearchParamProps) => {
-  const patient = await getPatient(userId);
-
-  Sentry.metrics.set("user_view_new-appointment", patient.name);
-
+const page = async ({ params: { userId } }: SearchParamProps) => {
+  const user = await getUser(userId);
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container">
@@ -21,17 +16,10 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             alt="logo"
             className="mb-12 h-10 w-fit"
           />
-
-          <AppointmentForm
-            patientId={patient?.$id}
-            userId={userId}
-            type="create"
-          />
-
+          <DeliveryForm userId={userId} />
           <p className="copyright mt-10 py-12">© 2024 CarePulse</p>
         </div>
       </section>
-
       <Image
         src="/assets/images/appointment-img.png"
         height={800}
@@ -43,4 +31,4 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
   );
 };
 
-export default Appointment;
+export default page;
