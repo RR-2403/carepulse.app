@@ -69,3 +69,19 @@ declare type BedsColumnsParams = {
   status: string;
   beds: number;
 };
+
+declare type DashboardAppointmentColumnsParams = {
+  status: Status;
+  primaryPhysician: string;
+  schedule: Date;
+  report: string;
+  link: string;
+};
+
+declare type DashboardTestColumnsParams = {
+  status: string;
+  hospital: string;
+  schedule: string;
+  report: string;
+  link: string;
+};

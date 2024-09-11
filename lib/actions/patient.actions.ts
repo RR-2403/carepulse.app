@@ -4,6 +4,7 @@ import { ID, Query } from "node-appwrite";
 import { InputFile } from "node-appwrite/file";
 
 import {
+  APPOINTMENT_COLLECTION_ID,
   BUCKET_ID,
   DATABASE_ID,
   ENDPOINT,
@@ -118,5 +119,20 @@ export const getPatient = async (userId: string) => {
       "An error occurred while retrieving the patient details:",
       error
     );
+  }
+};
+
+export const getAppointmentsByUser = async (userId: string) => {
+  try {
+    const appointments = await databases.listDocuments(
+      DATABASE_ID!,
+      APPOINTMENT_COLLECTION_ID!,
+      [Query.equal("userId", [userId])]
+    );
+
+    return appointments.documents;
+  } catch (error: any) {
+    console.error("An error occurred while fetching appointments:", error);
+    throw error;
   }
 };

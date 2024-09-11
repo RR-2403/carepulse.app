@@ -355,3 +355,41 @@ export const TestsData = [
     price: "₹ 950",
   },
 ];
+
+export const MockTests = [
+  {
+    hospital: "CrossRoads Hospital",
+    test: "Thyroid Profile (t 3, T 4, Tsh)",
+    schedule: "15/09/24",
+    report: "report",
+    status: "scheduled",
+  },
+  {
+    hospital: "Lakeside Hospital",
+    test: "Fasting Blood Sugar (fbs)",
+    schedule: "15/09/24",
+    report: "report",
+    status: "scheduled",
+  },
+  {
+    hospital: "Rosemary Medical Clinic",
+    test: "Post Prandial Blood Sugar (ppbs)",
+    schedule: "22/08/24",
+    report: "report",
+    status: "cancelled",
+  },
+  {
+    hospital: "Silverwood Hospital",
+    test: "Random Blood Sugar (rbs)",
+    schedule: "20/08/24",
+    report: "report",
+    status: "completed",
+  },
+  {
+    hospital: "Grand View Clinic",
+    test: "Complete Blood Count (cbc)",
+    schedule: "14/08/24",
+    report: "report",
+    status: "completed",
+  },
+];
