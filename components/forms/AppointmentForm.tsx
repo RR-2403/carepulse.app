@@ -1,5 +1,9 @@
 "use client";
 
+import { SelectItem } from "@/components/ui/select";
+import { Doctors } from "@/constants";
+import { getAppointmentSchema } from "@/lib/validation";
+import { Appointment } from "@/types/appwrite.types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -7,21 +11,16 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { SelectItem } from "@/components/ui/select";
-import { Doctors } from "@/constants";
-import { getAppointmentSchema } from "@/lib/validation";
-import { Appointment } from "@/types/appwrite.types";
-
 import "react-datepicker/dist/react-datepicker.css";
 
-import CustomFormField from "../CustomFormField";
-import SubmitButton from "../SubmitButton";
-import { Form } from "../ui/form";
-import { FormFieldType } from "./PatientForm";
 import {
   createAppointment,
   updateAppointment,
 } from "@/lib/actions/appointment.actions";
+import CustomFormField from "../CustomFormField";
+import SubmitButton from "../SubmitButton";
+import { Form } from "../ui/form";
+import { FormFieldType } from "./PatientForm";
 
 export const AppointmentForm = ({
   userId,

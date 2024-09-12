@@ -17,8 +17,21 @@ import {
 import { parseStringify } from "../utils";
 
 // CREATE APPWRITE USER
+
 export const createUser = async (user: CreateUserParams) => {
   try {
+    // Check if the user already exists by querying for email or phone
+    const existingUsers = await users.list([
+      Query.equal("email", user.email),
+      Query.equal("phone", user.phone),
+    ]);
+
+    if (existingUsers.total > 0) {
+      // Return the first existing user's data
+      return { user: parseStringify(existingUsers.users[0]) };
+    }
+
+    // Create a new user if no match found
     const newuser = await users.create(
       ID.unique(),
       user.email,
@@ -27,31 +40,10 @@ export const createUser = async (user: CreateUserParams) => {
       user.name
     );
 
-    return { user: parseStringify(newuser), isNewUser: true };
+    return { user: parseStringify(newuser) };
   } catch (error: any) {
-    // Check existing user
-    if (error && error.code === 409) {
-      try {
-        // Query for the existing user by email
-        const existingUsers = await users.list([
-          Query.equal("email", user.email),
-        ]);
-
-        // Return the first existing user found
-        if (existingUsers.total > 0) {
-          return parseStringify(existingUsers.users[0]);
-        }
-      } catch (queryError) {
-        console.error(
-          "An error occurred while querying the existing user:",
-          queryError
-        );
-        throw queryError;
-      }
-    } else {
-      console.error("An error occurred while creating a new user:", error);
-      throw error;
-    }
+    console.error("An error occurred while creating a new user:", error);
+    throw error;
   }
 };
 

@@ -5,6 +5,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Menudata } from "@/constants";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Menu = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
@@ -21,17 +22,22 @@ const Menu = async ({ params: { userId } }: SearchParamProps) => {
               alt="patient"
               className="mb-12 w-fit"
             />
-            <p>
+            <p className="text-xl mt-2">
               Welcome{" "}
               <span className="p-1 m-1 text-[#24AE7C]">{user?.name}</span>
               <br />
+            </p>
+            <Button
+              variant="ghost"
+              className="bg-green-500 text-white hover:bg-green-700"
+            >
               <Link
-                className="text-blue-500"
+                className="text-white"
                 href={`/patients/${userId}/dashboard`}
               >
                 Open Dashboard
               </Link>
-            </p>
+            </Button>
           </div>
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {Menudata.map((data, i) => (

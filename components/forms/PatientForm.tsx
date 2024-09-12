@@ -44,7 +44,7 @@ const PatientForm = () => {
         phone: values.phone,
       };
 
-      const { user: newUser, isNewUser } = await createUser(user);
+      const { user: newUser } = await createUser(user);
 
       if (newUser) {
         router.push(`/patients/${newUser.$id}/menu`);
