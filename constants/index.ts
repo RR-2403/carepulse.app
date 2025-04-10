@@ -109,6 +109,17 @@ export const Menudata = [
   },
 ];
 
+export const AdminMenudata = [
+  {
+    title: "Requested Appointments and Lab Tests",
+    image: "carbon:report",
+  },
+  {
+    title: "Inventory Management",
+    image: "bx:injection",
+  },
+];
+
 export const DoctorsData = [
   {
     image: "/assets/images/dr-green.png",

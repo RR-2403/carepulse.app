@@ -39,7 +39,7 @@ const PasskeyModal = () => {
     if (path)
       if (accessKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
         setOpen(false);
-        router.push("/admin");
+        router.push("/admin-menu");
       } else {
         setOpen(true);
       }

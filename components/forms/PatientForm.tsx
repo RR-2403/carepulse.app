@@ -48,13 +48,6 @@ const PatientForm = () => {
 
       if (newUser) {
         router.push(`/patients/${newUser.$id}/menu`);
-
-        // Redirect based on whether the user is new or existing
-        // if (isNewUser) {
-        //   router.push(`/patients/${newUser.$id}/register`);
-        // } else {
-        //   router.push(`/patients/${newUser.$id}/new-appointment`);
-        // }
       }
     } catch (error) {
       console.log(error);
