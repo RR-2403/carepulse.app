@@ -26,7 +26,7 @@ export const DeliveryForm = ({ userId }: { userId: string }) => {
     },
   });
 
-  const buttonLabel = "Schedule Test";
+  const buttonLabel = "Place Order";
 
   return (
     <Form {...form}>
