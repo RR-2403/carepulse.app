@@ -25,7 +25,7 @@ const AdminMenu = () => {
               <br />
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-x-16 gap-y-8 items-center justify-center">
+          <div className="md:grid flex flex-col md:grid-cols-2 gap-x-16 gap-y-8 items-center justify-center">
             {AdminMenudata.map((data, i) => (
               <Card
                 key={i}

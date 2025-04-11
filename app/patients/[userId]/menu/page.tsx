@@ -22,7 +22,7 @@ const Menu = async ({ params: { userId } }: SearchParamProps) => {
               alt="patient"
               className="mb-12 w-fit"
             />
-            <p className="text-xl mt-2">
+            <p className="text-xl hidden md:block mt-2">
               Welcome{" "}
               <span className="p-1 m-1 text-[#24AE7C]">{user?.name}</span>
               <br />
