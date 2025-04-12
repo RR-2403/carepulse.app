@@ -117,7 +117,8 @@ This project is licensed under the MIT License.
 
 - Aftab Alam : https://github.com/Aftab48 → mdalam4884@gmail.com
 - Ayushi Mandal : https://github.com/ayushi-stacks → ayushistacks@gmail.com
-  Team **Pair-a-dox**
+- Team **Pair-a-dox**
+  
 
 ---
 
